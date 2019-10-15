@@ -16,6 +16,9 @@
 		E993482E233A3BC7003A9525 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E993482C233A3BC7003A9525 /* LaunchScreen.storyboard */; };
 		E9934839233A3BC7003A9525 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9934838233A3BC7003A9525 /* MovieDBTests.swift */; };
 		E9934844233A3BC8003A9525 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9934843233A3BC8003A9525 /* MovieDBUITests.swift */; };
+		E9B9B0482355D035001231B7 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9B0472355D035001231B7 /* SettingsSection.swift */; };
+		E9B9B04C2355DD55001231B7 /* popcorn.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B9B04B2355DD55001231B7 /* popcorn.png */; };
+		E9CD9797235510F600EAC398 /* UserInfoSettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */; };
 		E9CE4F6F234BE4840068B911 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4F6E234BE4840068B911 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		E993483F233A3BC8003A9525 /* MovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9934843233A3BC8003A9525 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		E9934845233A3BC8003A9525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B9B0472355D035001231B7 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsSection.swift; path = MovieDB/Model/SettingsSection.swift; sourceTree = SOURCE_ROOT; };
+		E9B9B04B2355DD55001231B7 /* popcorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popcorn.png; path = Assets.xcassets/popcorn.imageset/popcorn.png; sourceTree = "<group>"; };
+		E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSettingsHeader.swift; sourceTree = "<group>"; };
 		E9CE4F6E234BE4840068B911 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +118,7 @@
 				E993482A233A3BC7003A9525 /* Assets.xcassets */,
 				E993482C233A3BC7003A9525 /* LaunchScreen.storyboard */,
 				E993482F233A3BC7003A9525 /* Info.plist */,
+				E9B9B04B2355DD55001231B7 /* popcorn.png */,
 				E9934827233A3BC7003A9525 /* MovieDB.xcdatamodeld */,
 			);
 			path = MovieDB;
@@ -139,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CE4F6E234BE4840068B911 /* SettingsCell.swift */,
+				E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 		E9CE4F6D234BE4610068B911 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9B9B0472355D035001231B7 /* SettingsSection.swift */,
 			);
 			name = Model;
 			path = Controller/Model;
@@ -266,6 +275,7 @@
 				E993482E233A3BC7003A9525 /* LaunchScreen.storyboard in Resources */,
 				E993482B233A3BC7003A9525 /* Assets.xcassets in Resources */,
 				E9934826233A3BC7003A9525 /* Main.storyboard in Resources */,
+				E9B9B04C2355DD55001231B7 /* popcorn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B9B0482355D035001231B7 /* SettingsSection.swift in Sources */,
 				E9934823233A3BC7003A9525 /* SettingsViewController.swift in Sources */,
 				E993481F233A3BC7003A9525 /* AppDelegate.swift in Sources */,
 				E9934829233A3BC7003A9525 /* MovieDB.xcdatamodeld in Sources */,
 				E9934821233A3BC7003A9525 /* SceneDelegate.swift in Sources */,
+				E9CD9797235510F600EAC398 /* UserInfoSettingsHeader.swift in Sources */,
 				E9CE4F6F234BE4840068B911 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8H665ED6TZ;
 				INFOPLIST_FILE = MovieDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8H665ED6TZ;
 				INFOPLIST_FILE = MovieDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
