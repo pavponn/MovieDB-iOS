@@ -17,14 +17,24 @@ class SettingsViewController: UIViewController {
     
     private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        navigationItem.title = "Settings"
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+         navigationItem.title = "Settings"
+    }
+    
+    override func loadView() {
         setUpUI()
     }
     
 
     func setUpTableView() {
         tableView = UITableView()
+        view = tableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 50
@@ -32,8 +42,8 @@ class SettingsViewController: UIViewController {
     
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
-        view.addSubview(tableView)
-        tableView.frame = view.frame
+//        view.addSubview(tableView)
+//        tableView.frame = view.frame
         tableView.tableFooterView = UIView()
         
         let frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 100)
@@ -42,17 +52,10 @@ class SettingsViewController: UIViewController {
         tableView.tableHeaderView = userHeader
         
         tableView.separatorColor = .lightGray
-        
     }
     
     func setUpUI() {
         setUpTableView()
-       
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = .black
-        navigationItem.title = "Settings"
     }
 
 }
@@ -80,16 +83,14 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
+        let header = UITableViewHeaderFooterView()
         header.backgroundColor = .black
-        let titleLabel = UILabel()
-        header.addSubview(titleLabel)
-        titleLabel.text = SettingsSection(rawValue: section)?.description
-        titleLabel.textColor = .white
-        titleLabel.font = .boldSystemFont(ofSize: 18)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: header.leftAnchor, constant: 16).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: header.centerYAnchor).isActive = true
+        header.tintColor = .black
+        header.textLabel?.text = SettingsSection(rawValue: section)?.description
+        header.textLabel?.textColor = .white
+        
+        header.textLabel?.font = .boldSystemFont(ofSize: 18)
+        header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
         
         return header;
     }

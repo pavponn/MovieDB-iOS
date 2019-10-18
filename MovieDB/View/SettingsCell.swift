@@ -15,6 +15,8 @@ class SettingsCell: UITableViewCell {
             guard let sectionType = sectionType.self else { return }
             textLabel?.text = sectionType.description
             toogler.isHidden = !sectionType.containsToogler
+            self.selectionStyle = sectionType.containsToogler ? .none : .gray
+            
         }
     }
     

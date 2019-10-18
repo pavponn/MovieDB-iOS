@@ -20,7 +20,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow()
         window?.makeKeyAndVisible()
-            window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+        let tabController = UITabBarController()
+        let navigationController = UINavigationController(rootViewController: SettingsViewController())
+        let navigationController2 = UINavigationController(rootViewController: SearchViewController())
+        window?.rootViewController = tabController
+        tabController.viewControllers = [navigationController2, navigationController];
+        navigationController.tabBarItem.title = "Settings"
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.barTintColor = .black
+        
+        navigationController2.tabBarItem.title = "Search"
+        navigationController2.navigationBar.prefersLargeTitles = true
+        navigationController2.navigationBar.isTranslucent = false
+        navigationController2.navigationBar.barStyle = .black
+        navigationController2.navigationBar.barTintColor = .black
+        
+        
         window?.windowScene = scene
     }
 
