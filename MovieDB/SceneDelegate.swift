@@ -18,27 +18,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
+        
+        let tabController = UITabBarController()
+        let settingsNavigationController = UINavigationController(rootViewController: SettingsViewController())
+        let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
+        
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let tabController = UITabBarController()
-        let navigationController = UINavigationController(rootViewController: SettingsViewController())
-        let navigationController2 = UINavigationController(rootViewController: SearchViewController())
+        
         window?.rootViewController = tabController
-        tabController.viewControllers = [navigationController2, navigationController];
-        navigationController.tabBarItem.title = "Settings"
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.barStyle = .black
-        navigationController.navigationBar.barTintColor = .black
         
-        navigationController2.tabBarItem.title = "Search"
-        navigationController2.navigationBar.prefersLargeTitles = true
-        navigationController2.navigationBar.isTranslucent = false
-        navigationController2.navigationBar.barStyle = .black
-        navigationController2.navigationBar.barTintColor = .black
+        setUpNavigationController(navigationController: settingsNavigationController, title: "Settings", preferLargeTitles: true, isTranslucent: false, barStyle: .black, barTintColor: .black)
         
+        setUpNavigationController(navigationController: searchNavigationController, title: "Search", preferLargeTitles: true, isTranslucent: false, barStyle: .black, barTintColor: .black)
+        
+        setUpTabBarController(tabBarController: tabController, viewControllers: [searchNavigationController, settingsNavigationController])
         
         window?.windowScene = scene
+    }
+    
+    func setUpNavigationController(navigationController: UINavigationController, title: String, preferLargeTitles: Bool, isTranslucent: Bool, barStyle: UIBarStyle, barTintColor: UIColor) {
+        navigationController.title = title
+        navigationController.navigationBar.prefersLargeTitles = preferLargeTitles
+        navigationController.navigationBar.isTranslucent = isTranslucent
+        navigationController.navigationBar.barStyle = barStyle
+        navigationController.navigationBar.barTintColor = barTintColor
+    }
+    
+    func setUpTabBarController(tabBarController: UITabBarController, viewControllers: [UIViewController]?) {
+        tabBarController.viewControllers = viewControllers
+        tabBarController.tabBar.barStyle = .black
     }
     
     @available(iOS 13.0, *)

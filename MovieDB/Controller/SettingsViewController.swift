@@ -19,12 +19,22 @@ class SettingsViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        navigationItem.title = "Settings"
+        itemsSetUp()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-         navigationItem.title = "Settings"
+        itemsSetUp()
+    }
+    
+    private func itemsSetUp() {
+        navigationItem.title = "Settings"
+        tabBarItem.title = "Settings"
+        if #available(iOS 13.0, *) {
+            tabBarItem.image = UIImage(systemName: "gear")
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func loadView() {
@@ -42,8 +52,7 @@ class SettingsViewController: UIViewController {
     
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
-//        view.addSubview(tableView)
-//        tableView.frame = view.frame
+    
         tableView.tableFooterView = UIView()
         
         let frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 100)
@@ -51,7 +60,7 @@ class SettingsViewController: UIViewController {
         userHeader.backgroundColor =  UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)//.darkGray
         tableView.tableHeaderView = userHeader
         
-        tableView.separatorColor = .lightGray
+        // tableView.separatorColor = .lightGray
     }
     
     func setUpUI() {
@@ -66,6 +75,29 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return SettingsSection.allCases.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let section = SettingsSection(rawValue: indexPath.section) else { return }
+        
+
+        var viewToPush: UIViewController?
+        
+        switch section {
+        case .Social:
+            viewToPush = SocialOptions(rawValue: indexPath.row)?.pushedView
+        case .UserPreferences:
+            viewToPush = UserPreferencesOptions(rawValue: indexPath.row)?.pushedView
+        case .Location:
+            viewToPush = LocationOptions(rawValue: indexPath.row)?.pushedView
+        }
+        
+        if (viewToPush != nil) {
+            navigationController?.pushViewController(viewToPush!, animated: true)
+        }
+    
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let section = SettingsSection(rawValue: section) else { return 0 }
@@ -77,9 +109,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             return SocialOptions.allCases.count
         case .Location:
             return LocationOptions.allCases.count
-       
         }
-    
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
