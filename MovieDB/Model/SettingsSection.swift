@@ -6,9 +6,14 @@
 //  Copyright © 2019 pavponn. All rights reserved.
 //
 
+import UIKit
+
 protocol SectionType: CustomStringConvertible {
     var containsToogler: Bool { get }
+    
+    var pushedView: UIViewController? { get }
 }
+
 
 enum SettingsSection: Int, CustomStringConvertible, CaseIterable {
     case UserPreferences
@@ -48,6 +53,10 @@ enum UserPreferencesOptions: Int, CaseIterable, SectionType {
     var containsToogler: Bool {
         return false
     }
+    
+    var pushedView: UIViewController? {
+        return nil // TODO add view
+    }
 }
 
 enum LocationOptions: Int, CaseIterable, SectionType {
@@ -65,6 +74,15 @@ enum LocationOptions: Int, CaseIterable, SectionType {
     
     var containsToogler: Bool {
         return false
+    }
+    
+    var pushedView: UIViewController? {
+        switch self {
+        case .Country:
+            return CountryChooseViewController()
+        case .Language:
+            return LanguageChooseViewController()
+        }
     }
 
 }
@@ -89,6 +107,10 @@ enum SocialOptions: Int, CaseIterable, SectionType {
         case .EmailNotifications:
             return true
         }
+    }
+    
+    var pushedView: UIViewController? {
+        return nil
     }
 }
 

@@ -13,20 +13,43 @@ class SearchViewController: UIViewController {
     var searchVIew: UIView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-           super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-           navigationItem.title = "Search"
-       }
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        navigationItem.title = "Search"
+        tabBarItem.title = "Search"
+        if #available(iOS 13.0, *) {
+            tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        } else {
+            // Fallback on earlier versions
+        }
+    }
        
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-            navigationItem.title = "Search"
-       }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        navigationItem.title = "Search"
+        
+        tabBarItem.title = "Search"
+        if #available(iOS 13.0, *) {
+            tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        } else {
+            // Fallback on earlier versions
+        }
+    }
     
     override func loadView() {
     }
     
-    func setUpUI() {
+}
+
+
+extension SearchViewController:  UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2;
+        
+    }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return SettingsSection.allCases.count
     }
     
 }
