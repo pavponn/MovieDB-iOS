@@ -16,6 +16,9 @@ class SettingsCell: UITableViewCell {
             textLabel?.text = sectionType.description
             toogler.isHidden = !sectionType.containsToogler
             self.selectionStyle = sectionType.containsToogler ? .none : .gray
+            if sectionType.containsDisclosureIndicator {
+                self.accessoryType = .disclosureIndicator
+            }
             
         }
     }
@@ -47,6 +50,10 @@ class SettingsCell: UITableViewCell {
         } else {
             print("Turned off")
         }
+    }
+    
+    static var reuseIdentifier: String {
+        return "SettingsCellReuseIdentifier"
     }
     
 }

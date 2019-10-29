@@ -11,6 +11,10 @@ import UIKit
 protocol SectionType: CustomStringConvertible {
     var containsToogler: Bool { get }
     
+    var containsDisclosureIndicator: Bool { get }
+    
+    var containsCheckMark:Bool { get }
+    
     var pushedView: UIViewController? { get }
 }
 
@@ -34,6 +38,14 @@ enum SettingsSection: Int, CustomStringConvertible, CaseIterable {
     var containsToogler: Bool {
         return false
     }
+    
+    var containsMore: Bool {
+        return false
+    }
+    
+    var containsCheckMark: Bool {
+        return false
+    }
 }
 
 
@@ -51,6 +63,14 @@ enum UserPreferencesOptions: Int, CaseIterable, SectionType {
     }
     
     var containsToogler: Bool {
+        return false
+    }
+    
+    var containsDisclosureIndicator: Bool {
+        return true
+    }
+    
+    var containsCheckMark: Bool {
         return false
     }
     
@@ -73,6 +93,14 @@ enum LocationOptions: Int, CaseIterable, SectionType {
     }
     
     var containsToogler: Bool {
+        return false
+    }
+    
+    var containsDisclosureIndicator: Bool {
+        return true
+    }
+    
+    var containsCheckMark: Bool {
         return false
     }
     
@@ -107,6 +135,14 @@ enum SocialOptions: Int, CaseIterable, SectionType {
         case .EmailNotifications:
             return true
         }
+    }
+    
+    var containsDisclosureIndicator: Bool {
+        return false
+    }
+    
+    var containsCheckMark: Bool {
+        return false
     }
     
     var pushedView: UIViewController? {

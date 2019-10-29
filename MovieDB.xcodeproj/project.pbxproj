@@ -23,6 +23,7 @@
 		E9B9B04C2355DD55001231B7 /* popcorn.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B9B04B2355DD55001231B7 /* popcorn.png */; };
 		E9CD9797235510F600EAC398 /* UserInfoSettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */; };
 		E9CE4F6F234BE4840068B911 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4F6E234BE4840068B911 /* SettingsCell.swift */; };
+		E9F2CD372368D31F003BBD65 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F2CD362368D31F003BBD65 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E9B9B04B2355DD55001231B7 /* popcorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popcorn.png; path = Assets.xcassets/popcorn.imageset/popcorn.png; sourceTree = "<group>"; };
 		E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSettingsHeader.swift; sourceTree = "<group>"; };
 		E9CE4F6E234BE4840068B911 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		E9F2CD362368D31F003BBD65 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CE4F6E234BE4840068B911 /* SettingsCell.swift */,
+				E9F2CD362368D31F003BBD65 /* MovieCell.swift */,
 				E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */,
 			);
 			path = View;
@@ -312,6 +315,7 @@
 				E9B9B0482355D035001231B7 /* SettingsSection.swift in Sources */,
 				E9934823233A3BC7003A9525 /* SettingsViewController.swift in Sources */,
 				E91A69C02359ADE500B6D1FF /* SearchViewController.swift in Sources */,
+				E9F2CD372368D31F003BBD65 /* MovieCell.swift in Sources */,
 				E944F83A235F99E2001C7771 /* LanguageChooseViewController.swift in Sources */,
 				E944F838235F99C0001C7771 /* CountryChooseViewController.swift in Sources */,
 				E993481F233A3BC7003A9525 /* AppDelegate.swift in Sources */,

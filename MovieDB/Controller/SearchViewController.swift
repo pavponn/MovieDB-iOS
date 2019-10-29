@@ -9,24 +9,56 @@
 import UIKit
 class SearchViewController: UIViewController {
     
-    var tableView: UITableView!
-    var searchVIew: UIView!
+    private var tableView: UITableView!
+    
+    private var searchController: UISearchController!
+    
+    private let headerAndCellsColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        navigationItem.title = "Search"
-        tabBarItem.title = "Search"
-        if #available(iOS 13.0, *) {
-            tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        } else {
-            // Fallback on earlier versions
-        }
+        searchController = UISearchController(searchResultsController: nil)
+        itemsSetUp()
     }
        
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        navigationItem.title = "Search"
+        searchController = UISearchController(searchResultsController: nil)
+        itemsSetUp()
+    }
+    
+    override func loadView() {
+         setUpUI()
+    }
+    
+    func setUpUI() {
+        setUpTableView()
+        setUpSearchController()
+    }
+    
+    func setUpTableView() {
+        tableView = UITableView()
+        view = tableView
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 150
+        tableView.backgroundColor = .black
         
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
+        
+        tableView.tableFooterView = UIView()
+    }
+    
+    func setUpSearchController() {
+        searchController.searchResultsUpdater = self as UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Movies, series, cartoons, etc"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func itemsSetUp() {
+        navigationItem.title = "Search"
         tabBarItem.title = "Search"
         if #available(iOS 13.0, *) {
             tabBarItem.image = UIImage(systemName: "magnifyingglass")
@@ -35,21 +67,36 @@ class SearchViewController: UIViewController {
         }
     }
     
-    override func loadView() {
+}
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 14;
+    }
+       
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
-
-extension SearchViewController:  UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
-        
+extension SearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseIdentifier, for: indexPath) as! MovieCell
+        cell.backgroundColor = headerAndCellsColor
+        return cell
     }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingsSection.allCases.count
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
     }
     
 }

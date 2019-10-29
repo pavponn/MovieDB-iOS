@@ -12,8 +12,9 @@ private let reuseIdentifier = "CountryCell"
 
 class CountryChooseViewController: UIViewController {
     
-    var tableView: UITableView!
-    var countriesArray = ["Russia", "USA", "England", "Italy", "Spain", "France", "Australia"] // TODO: get list of countries from API
+    private var tableView: UITableView!
+    
+    private var countriesArray = ["Russia", "USA", "England", "Italy", "Spain", "France", "Australia"] // TODO: get list of countries from API
     
     private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
     

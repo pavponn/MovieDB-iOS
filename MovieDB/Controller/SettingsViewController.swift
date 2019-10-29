@@ -8,14 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "SettingsCell"
 
 class SettingsViewController: UIViewController {
     
-    var tableView: UITableView!
-    var userHeader: UserInfoSettingsHeader!
+    private var tableView: UITableView!
+    private var userHeader: UserInfoSettingsHeader!
     
-    private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
+    private let headerAndCellsColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,101 +40,95 @@ class SettingsViewController: UIViewController {
         setUpUI()
     }
     
-
-    func setUpTableView() {
+    func setUpUI() {
         tableView = UITableView()
         view = tableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 50
         tableView.backgroundColor = .black
-    
         
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
-    
+        tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
+        
         tableView.tableFooterView = UIView()
-        
+               
         let frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 100)
         userHeader = UserInfoSettingsHeader(frame: frame)
-        userHeader.backgroundColor =  UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)//.darkGray
+        userHeader.backgroundColor = headerAndCellsColor
         tableView.tableHeaderView = userHeader
-        
-        // tableView.separatorColor = .lightGray
-    }
-    
-    func setUpUI() {
-        setUpTableView()
     }
 
 }
+extension SettingsViewController: UITableViewDelegate {
+    
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath, animated: true)
+           
+           guard let section = SettingsSection(rawValue: indexPath.section) else { return }
+           
 
-extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
+           var viewToPush: UIViewController?
+           
+           switch section {
+           case .Social:
+               viewToPush = SocialOptions(rawValue: indexPath.row)?.pushedView
+           case .UserPreferences:
+               viewToPush = UserPreferencesOptions(rawValue: indexPath.row)?.pushedView
+           case .Location:
+               viewToPush = LocationOptions(rawValue: indexPath.row)?.pushedView
+           }
+           
+           if (viewToPush != nil) {
+               navigationController?.pushViewController(viewToPush!, animated: true)
+           }
+       
+       }
+       
+       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           
+           guard let section = SettingsSection(rawValue: section) else { return 0 }
+           
+           switch section {
+           case .UserPreferences:
+               return UserPreferencesOptions.allCases.count
+           case .Social:
+               return SocialOptions.allCases.count
+           case .Location:
+               return LocationOptions.allCases.count
+           }
+       }
+       
+       func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let header = UITableViewHeaderFooterView()
+           header.backgroundColor = .black
+           header.tintColor = .black
+           header.textLabel?.text = SettingsSection(rawValue: section)?.description
+           header.textLabel?.textColor = .white
+           
+           header.textLabel?.font = .boldSystemFont(ofSize: 18)
+           header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+           
+           return header;
+       }
+       
+       func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+           return 40
+       }
+}
+
+extension SettingsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingsSection.allCases.count
+             return SettingsSection.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        guard let section = SettingsSection(rawValue: indexPath.section) else { return }
-        
-
-        var viewToPush: UIViewController?
-        
-        switch section {
-        case .Social:
-            viewToPush = SocialOptions(rawValue: indexPath.row)?.pushedView
-        case .UserPreferences:
-            viewToPush = UserPreferencesOptions(rawValue: indexPath.row)?.pushedView
-        case .Location:
-            viewToPush = LocationOptions(rawValue: indexPath.row)?.pushedView
-        }
-        
-        if (viewToPush != nil) {
-            navigationController?.pushViewController(viewToPush!, animated: true)
-        }
-    
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let section = SettingsSection(rawValue: section) else { return 0 }
-        
-        switch section {
-        case .UserPreferences:
-            return UserPreferencesOptions.allCases.count
-        case .Social:
-            return SocialOptions.allCases.count
-        case .Location:
-            return LocationOptions.allCases.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UITableViewHeaderFooterView()
-        header.backgroundColor = .black
-        header.tintColor = .black
-        header.textLabel?.text = SettingsSection(rawValue: section)?.description
-        header.textLabel?.textColor = .white
-        
-        header.textLabel?.font = .boldSystemFont(ofSize: 18)
-        header.textLabel?.translatesAutoresizingMaskIntoConstraints = false
-        
-        return header;
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let section = SettingsSection(rawValue: indexPath.section) else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as! SettingsCell
         
-        cell.backgroundColor = headerAndSectionsColor
+        cell.backgroundColor = headerAndCellsColor
+        cell.accessoryView?.tintColor = .white
         cell.textLabel?.textColor = .white
         
         switch section {
@@ -152,7 +145,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
     
 }
 

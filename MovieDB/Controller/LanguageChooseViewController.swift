@@ -12,8 +12,9 @@ private let reuseIdentifier = "LanguageCell"
 
 class LanguageChooseViewController: UIViewController {
     
-    var tableView: UITableView!
-    var languagesArray = ["Russian", "English"]
+    private var tableView: UITableView!
+    
+    private var languagesArray = ["Russian", "English"]
     
     private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
     
