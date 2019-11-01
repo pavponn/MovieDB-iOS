@@ -45,7 +45,7 @@ class LanguageChooseViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.backgroundColor = .black
            
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(SettingsLanguageCell.self, forCellReuseIdentifier: SettingsLanguageCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
     }
     
@@ -68,14 +68,12 @@ extension LanguageChooseViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let language = languagesArray[indexPath.row]
-        let  cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
+        let  cell = tableView.dequeueReusableCell(withIdentifier: SettingsLanguageCell.reuseIdentifier, for: indexPath) as! SettingsLanguageCell
         
         cell.backgroundColor = headerAndSectionsColor
         cell.textLabel?.textColor = .white
         cell.textLabel?.text = language
-        cell.toogler.isHidden = true
         
         return cell
-        
     }
 }

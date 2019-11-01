@@ -45,7 +45,7 @@ class CountryChooseViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.backgroundColor = .black
         
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(SettingsCountryCell.self, forCellReuseIdentifier: SettingsCountryCell.reuseIdentifier)
         
         tableView.tableFooterView = UIView()
     }
@@ -67,13 +67,12 @@ extension CountryChooseViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = countriesArray[indexPath.row]
-        let  cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! SettingsCell
+        let  cell = tableView.dequeueReusableCell(withIdentifier: SettingsCountryCell.reuseIdentifier, for: indexPath) as! SettingsCountryCell
         
         cell.backgroundColor = headerAndSectionsColor
         cell.textLabel?.textColor = .white
         cell.textLabel?.text = country
-        cell.toogler.isHidden = true
-        
+
         return cell
     }
 }

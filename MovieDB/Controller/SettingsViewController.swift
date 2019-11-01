@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.backgroundColor = .black
         
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
+        tableView.register(SettingsMainCell.self, forCellReuseIdentifier: SettingsMainCell.reuseIdentifier)
         
         tableView.tableFooterView = UIView()
                
@@ -125,7 +125,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let section = SettingsSection(rawValue: indexPath.section) else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as! SettingsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsMainCell.reuseIdentifier, for: indexPath) as! SettingsMainCell
         
         cell.backgroundColor = headerAndCellsColor
         cell.accessoryView?.tintColor = .white

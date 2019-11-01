@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class SettingsMainCell: UITableViewCell {
+    
+    public static var reuseIdentifier: String {
+           return "SettingsMainCellReuseIdentifier"
+    }
     
     var sectionType: SectionType? {
         didSet {
@@ -50,10 +54,6 @@ class SettingsCell: UITableViewCell {
         } else {
             print("Turned off")
         }
-    }
-    
-    static var reuseIdentifier: String {
-        return "SettingsCellReuseIdentifier"
     }
     
 }
