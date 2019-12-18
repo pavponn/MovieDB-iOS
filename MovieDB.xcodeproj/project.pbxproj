@@ -20,6 +20,15 @@
 		E9934839233A3BC7003A9525 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9934838233A3BC7003A9525 /* MovieDBTests.swift */; };
 		E9934844233A3BC8003A9525 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9934843233A3BC8003A9525 /* MovieDBUITests.swift */; };
 		E9B9B0482355D035001231B7 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B9B0472355D035001231B7 /* SettingsSection.swift */; };
+		E9BD3A4B23856CF50045C912 /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BD3A4A23856CF50045C912 /* ViewConstants.swift */; };
+		E9BD3A5F238582EE0045C912 /* Town-10-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A57238582ED0045C912 /* Town-10-Display-Light.otf */; };
+		E9BD3A60238582EE0045C912 /* Town-10-Display-ExtraThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A58238582ED0045C912 /* Town-10-Display-ExtraThin.otf */; };
+		E9BD3A61238582EE0045C912 /* Town-10-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A59238582ED0045C912 /* Town-10-Display-Medium.otf */; };
+		E9BD3A62238582EE0045C912 /* Town-10-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A5A238582ED0045C912 /* Town-10-Display-Regular.otf */; };
+		E9BD3A63238582EE0045C912 /* Town-10-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A5B238582ED0045C912 /* Town-10-Display-Thin.otf */; };
+		E9BD3A64238582EE0045C912 /* Town-10-Display-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A5C238582EE0045C912 /* Town-10-Display-Hairline.otf */; };
+		E9BD3A65238582EE0045C912 /* Town-10-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A5D238582EE0045C912 /* Town-10-Display-Bold.otf */; };
+		E9BD3A66238582EE0045C912 /* Town-10-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9BD3A5E238582EE0045C912 /* Town-10-Display-Black.otf */; };
 		E9CD9797235510F600EAC398 /* UserInfoSettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */; };
 		E9CE4F6F234BE4840068B911 /* SettingsMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4F6E234BE4840068B911 /* SettingsMainCell.swift */; };
 		E9F24001236C125F00B2A3E6 /* SettingsLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F24000236C125F00B2A3E6 /* SettingsLanguageCell.swift */; };
@@ -64,6 +73,15 @@
 		E9934843233A3BC8003A9525 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		E9934845233A3BC8003A9525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B9B0472355D035001231B7 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsSection.swift; path = MovieDB/Model/SettingsSection.swift; sourceTree = SOURCE_ROOT; };
+		E9BD3A4A23856CF50045C912 /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
+		E9BD3A57238582ED0045C912 /* Town-10-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Light.otf"; sourceTree = "<group>"; };
+		E9BD3A58238582ED0045C912 /* Town-10-Display-ExtraThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-ExtraThin.otf"; sourceTree = "<group>"; };
+		E9BD3A59238582ED0045C912 /* Town-10-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Medium.otf"; sourceTree = "<group>"; };
+		E9BD3A5A238582ED0045C912 /* Town-10-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Regular.otf"; sourceTree = "<group>"; };
+		E9BD3A5B238582ED0045C912 /* Town-10-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Thin.otf"; sourceTree = "<group>"; };
+		E9BD3A5C238582EE0045C912 /* Town-10-Display-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Hairline.otf"; sourceTree = "<group>"; };
+		E9BD3A5D238582EE0045C912 /* Town-10-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Bold.otf"; sourceTree = "<group>"; };
+		E9BD3A5E238582EE0045C912 /* Town-10-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Town-10-Display-Black.otf"; sourceTree = "<group>"; };
 		E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSettingsHeader.swift; sourceTree = "<group>"; };
 		E9CE4F6E234BE4840068B911 /* SettingsMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainCell.swift; sourceTree = "<group>"; };
 		E9F24000236C125F00B2A3E6 /* SettingsLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageCell.swift; sourceTree = "<group>"; };
@@ -119,6 +137,7 @@
 		E993481D233A3BC7003A9525 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				E9BD3A55238582970045C912 /* Resources */,
 				E9CE4F6D234BE4610068B911 /* Model */,
 				E9CE4F6C234BE4530068B911 /* Controller */,
 				E9CE4F6B234BE4460068B911 /* View */,
@@ -151,6 +170,29 @@
 			path = MovieDBUITests;
 			sourceTree = "<group>";
 		};
+		E9BD3A55238582970045C912 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9BD3A562385829F0045C912 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9BD3A562385829F0045C912 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E9BD3A5E238582EE0045C912 /* Town-10-Display-Black.otf */,
+				E9BD3A5D238582EE0045C912 /* Town-10-Display-Bold.otf */,
+				E9BD3A58238582ED0045C912 /* Town-10-Display-ExtraThin.otf */,
+				E9BD3A5C238582EE0045C912 /* Town-10-Display-Hairline.otf */,
+				E9BD3A57238582ED0045C912 /* Town-10-Display-Light.otf */,
+				E9BD3A59238582ED0045C912 /* Town-10-Display-Medium.otf */,
+				E9BD3A5A238582ED0045C912 /* Town-10-Display-Regular.otf */,
+				E9BD3A5B238582ED0045C912 /* Town-10-Display-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E9CE4F6B234BE4460068B911 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +201,7 @@
 				E9F24002236C137800B2A3E6 /* SettingsCountryCell.swift */,
 				E9F2CD362368D31F003BBD65 /* MovieCell.swift */,
 				E9CD9796235510F600EAC398 /* UserInfoSettingsHeader.swift */,
+				E9BD3A4A23856CF50045C912 /* ViewConstants.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,9 +330,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BD3A63238582EE0045C912 /* Town-10-Display-Thin.otf in Resources */,
 				E993482E233A3BC7003A9525 /* LaunchScreen.storyboard in Resources */,
+				E9BD3A65238582EE0045C912 /* Town-10-Display-Bold.otf in Resources */,
 				E993482B233A3BC7003A9525 /* Assets.xcassets in Resources */,
+				E9BD3A62238582EE0045C912 /* Town-10-Display-Regular.otf in Resources */,
+				E9BD3A64238582EE0045C912 /* Town-10-Display-Hairline.otf in Resources */,
+				E9BD3A60238582EE0045C912 /* Town-10-Display-ExtraThin.otf in Resources */,
+				E9BD3A5F238582EE0045C912 /* Town-10-Display-Light.otf in Resources */,
+				E9BD3A61238582EE0045C912 /* Town-10-Display-Medium.otf in Resources */,
 				E9934826233A3BC7003A9525 /* Main.storyboard in Resources */,
+				E9BD3A66238582EE0045C912 /* Town-10-Display-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +367,7 @@
 			files = (
 				E9B9B0482355D035001231B7 /* SettingsSection.swift in Sources */,
 				E9934823233A3BC7003A9525 /* SettingsViewController.swift in Sources */,
+				E9BD3A4B23856CF50045C912 /* ViewConstants.swift in Sources */,
 				E91A69C02359ADE500B6D1FF /* SearchViewController.swift in Sources */,
 				E9F2CD372368D31F003BBD65 /* MovieCell.swift in Sources */,
 				E944F83A235F99E2001C7771 /* LanguageChooseViewController.swift in Sources */,

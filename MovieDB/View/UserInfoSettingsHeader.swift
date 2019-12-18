@@ -41,8 +41,9 @@ class UserInfoSettingsHeader: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let USER_IMAGE_PIC_SIZE: CGFloat = 70 //
-        let USER_IMAGE_LEFT_CONSTRAINT: CGFloat = 30;
+        let USER_IMAGE_PIC_SIZE: CGFloat = 70
+        let USER_IMAGE_LEFT_CONSTRAINT: CGFloat = 30
+        
         
         // User's picture
         addSubview(userPictureImageView)

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SettingsLanguageCell: UITableViewCell {
     
     public static var reuseIdentifier: String {

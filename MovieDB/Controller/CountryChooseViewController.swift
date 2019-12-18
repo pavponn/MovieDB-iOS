@@ -16,7 +16,6 @@ class CountryChooseViewController: UIViewController {
     
     private var countriesArray = ["Russia", "USA", "England", "Italy", "Spain", "France", "Australia"] // TODO: get list of countries from API
     
-    private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -69,7 +68,7 @@ extension CountryChooseViewController: UITableViewDelegate, UITableViewDataSourc
         let country = countriesArray[indexPath.row]
         let  cell = tableView.dequeueReusableCell(withIdentifier: SettingsCountryCell.reuseIdentifier, for: indexPath) as! SettingsCountryCell
         
-        cell.backgroundColor = headerAndSectionsColor
+        cell.backgroundColor = ViewConstants.APP_SECOND_COLOR
         cell.textLabel?.textColor = .white
         cell.textLabel?.text = country
 

@@ -10,10 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     
     private var tableView: UITableView!
-    
     private var searchController: UISearchController!
-    
-    private let headerAndCellsColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -42,7 +39,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 150
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = ViewConstants.APP_SECOND_COLOR
         
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
         
@@ -88,7 +85,7 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseIdentifier, for: indexPath) as! MovieCell
-        cell.backgroundColor = headerAndCellsColor
+        cell.backgroundColor = ViewConstants.APP_SECOND_COLOR
         return cell
     }
 }

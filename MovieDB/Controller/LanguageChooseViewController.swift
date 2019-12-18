@@ -16,7 +16,6 @@ class LanguageChooseViewController: UIViewController {
     
     private var languagesArray = ["Russian", "English"]
     
-    private let headerAndSectionsColor = UIColor(red: 28, green: 28, blue: 30, alpha: 0.005)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
            super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -70,7 +69,7 @@ extension LanguageChooseViewController: UITableViewDelegate, UITableViewDataSour
         let language = languagesArray[indexPath.row]
         let  cell = tableView.dequeueReusableCell(withIdentifier: SettingsLanguageCell.reuseIdentifier, for: indexPath) as! SettingsLanguageCell
         
-        cell.backgroundColor = headerAndSectionsColor
+        cell.backgroundColor = ViewConstants.APP_SECOND_COLOR
         cell.textLabel?.textColor = .white
         cell.textLabel?.text = language
         

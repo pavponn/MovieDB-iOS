@@ -20,34 +20,60 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let tabController = UITabBarController()
-        let settingsNavigationController = UINavigationController(rootViewController: SettingsViewController())
-        let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
+        let navigationControllers = [
+            UINavigationController(rootViewController: SearchViewController()),
+            UINavigationController(rootViewController: SettingsViewController())
+        ]
         
+        
+        // MARK: SETUP Navigation Controllers
+        setUpNavigationController(navigationController: navigationControllers[0], title: "Search", preferLargeTitles: true)
+        setUpNavigationController(navigationController: navigationControllers[1], title: "Settings", preferLargeTitles: true)
+        
+        
+        // MARK: SETUP Tab bar
+        setUpTabBarController(tabBarController: tabController, viewControllers: navigationControllers)
+       
+         // MARK: SETUP window
         window = UIWindow()
         window?.makeKeyAndVisible()
-        
         window?.rootViewController = tabController
-        
-        setUpNavigationController(navigationController: settingsNavigationController, title: "Settings", preferLargeTitles: true, isTranslucent: false, barStyle: .black, barTintColor: .black)
-        
-        setUpNavigationController(navigationController: searchNavigationController, title: "Search", preferLargeTitles: true, isTranslucent: false, barStyle: .black, barTintColor: .black)
-        
-        setUpTabBarController(tabBarController: tabController, viewControllers: [searchNavigationController, settingsNavigationController])
-        
+        window?.backgroundColor = ViewConstants.APP_MAIN_COLOR
         window?.windowScene = scene
     }
     
-    func setUpNavigationController(navigationController: UINavigationController, title: String, preferLargeTitles: Bool, isTranslucent: Bool, barStyle: UIBarStyle, barTintColor: UIColor) {
+    func setUpNavigationController(navigationController: UINavigationController, title: String, preferLargeTitles: Bool) {
+        
         navigationController.title = title
+        
+        let regularAttributes = [
+            NSAttributedString.Key.foregroundColor: ViewConstants.MAIN_FONT_COLOR,
+            NSAttributedString.Key.font: ViewConstants.MAIN_REGULAR_FONT
+        ]
+        
+        let largeAttributes = [
+            NSAttributedString.Key.foregroundColor: ViewConstants.MAIN_FONT_COLOR,
+            NSAttributedString.Key.font: ViewConstants.MAIN_LARGE_FONT
+        ]
+
+        navigationController.navigationBar.largeTitleTextAttributes = largeAttributes as [NSAttributedString.Key : Any]
+        navigationController.navigationBar.titleTextAttributes = regularAttributes as [NSAttributedString.Key : Any]
+        
         navigationController.navigationBar.prefersLargeTitles = preferLargeTitles
-        navigationController.navigationBar.isTranslucent = isTranslucent
-        navigationController.navigationBar.barStyle = barStyle
-        navigationController.navigationBar.barTintColor = barTintColor
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barStyle = .default
+        navigationController.navigationBar.barTintColor = ViewConstants.APP_MAIN_COLOR
+        navigationController.navigationBar.backgroundColor = ViewConstants.APP_MAIN_COLOR
     }
     
     func setUpTabBarController(tabBarController: UITabBarController, viewControllers: [UIViewController]?) {
         tabBarController.viewControllers = viewControllers
         tabBarController.tabBar.barStyle = .black
+        tabBarController.tabBar.tintColor = ViewConstants.MAIN_FONT_COLOR
+        tabBarController.tabBar.barTintColor = ViewConstants.APP_MAIN_COLOR
+        tabBarController.tabBar.backgroundColor = ViewConstants.APP_MAIN_COLOR
+        tabBarController.tabBar.isTranslucent = false
+        
     }
     
     @available(iOS 13.0, *)
@@ -86,6 +112,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-
 }
-
